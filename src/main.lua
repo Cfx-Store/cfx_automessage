@@ -3,13 +3,13 @@ local template = LoadResourceFile(currentResourceName, "template.html")
 
 Citizen.CreateThread(function()
   while true do
-    for _, message in pairs(Config.Messages) do
+    for _, message in pairs(Config.messages) do
       TriggerEvent("chat:addMessage", {
         template = template,
-        args = { Config.Title, message }
+        args = { Config.imageUrl, Config.color, Config.title, message }
       })
 
-      Citizen.Wait(Config.Interval)
+      Citizen.Wait(Config.interval)
     end
   end
 end)
